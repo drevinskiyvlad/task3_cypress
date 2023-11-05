@@ -51,6 +51,13 @@ Or: use command to run tests from terminal:
    npm run cypress:run
    ```
 
+## Steps to Creating the Report
+1. Get the record key from cypress dashboard
+2. run the command:
+   ```bash
+   npx cypress run --record --key *KEY*
+   ```
+
 ## Reporting
 
 Cypress provides detailed test reports and logs in its test runner interface. You can view the results of the test execution there.
