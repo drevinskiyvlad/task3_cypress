@@ -6,6 +6,7 @@ class MainPage {
         mainContent: () => cy.get('.home-page'),
         signInButton: () => cy.get('[show-authed="false"] > :nth-child(2) > .nav-link'),
         signUpButton: () => cy.get('[show-authed="false"] > :nth-child(3) > .nav-link'),
+        newArticleButton: () => cy.get('[show-authed="true"] > :nth-child(2) > .nav-link'),
         settingsButton: () => cy.get('[show-authed="true"] > :nth-child(3) > .nav-link'),
         accountName: () => cy.get(':nth-child(4) > .nav-link'),
         globalFeedButton: () => cy.get('.feed-toggle > .nav > :nth-child(2) > .nav-link'),
@@ -34,6 +35,10 @@ class MainPage {
 
     clickAccountName(){
         this.elements.accountName().click();
+    }
+
+    clickNewArticleButton(){
+        this.elements.newArticleButton().click();
     }
 
     getLikeButton(){
