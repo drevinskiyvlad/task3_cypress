@@ -1,6 +1,4 @@
-class loginPage {
-
-
+class LoginPage {
     elements = {
         usernameDropDown: () => cy.get('#userSelect'),
         selectUser: () => cy.get('option[value="1"]')
@@ -9,10 +7,8 @@ class loginPage {
     open(){
         cy.visit('/#')
     }
-
-
 }
 
 
-module.exports = new loginPage();
+module.exports = new LoginPage();
 
