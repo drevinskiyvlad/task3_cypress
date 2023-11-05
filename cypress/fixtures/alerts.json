@@ -1,4 +1,5 @@
 {
   "blank_email": "email can't be blank",
-  "username_taken": "username has already been taken"
+  "username_taken": "username has already been taken",
+  "invalid_login": "email or password is invalid"
 }

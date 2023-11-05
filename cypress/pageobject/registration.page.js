@@ -16,6 +16,10 @@ class RegistrationPage {
         return this.elements.errorMessage();
     }
 
+    getRegistrationForm(){
+        return this.elements.registrationForm();
+    }
+
     validate(){
         this.elements.registrationForm().should('be.visible');
     }
