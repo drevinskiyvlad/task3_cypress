@@ -2,7 +2,8 @@ class AccountPage {
     elements = {
         favouriteArticlesButton: () => cy.get('.articles-toggle > .nav > :nth-child(2) > .nav-link'),
         favouriteArticle: () => cy.get('article-preview.ng-scope > .article-preview'),
-        likeButton: () => cy.get('.pull-xs-right > .btn')
+        likeButton: () => cy.get('.pull-xs-right > .btn'),
+        userImg: () => cy.get('.user-img'),
     }
 
     getFavouriteArticle() {
@@ -15,6 +16,10 @@ class AccountPage {
 
     clickLikeButton() {
         this.elements.likeButton().click();
+    }
+
+    validate() {
+        this.elements.userImg().should('be.visible');
     }
 }
 module.exports = new AccountPage();

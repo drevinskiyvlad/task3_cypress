@@ -22,6 +22,7 @@ describe('Feed', () => {
         AccountPage.clickFavouriteArticlesButton();
         AccountPage.getFavouriteArticle().should('be.visible');
         AccountPage.clickLikeButton();
+        AccountPage.validate();
     })
 
     it('Check like function with unauthorized user', () => {
