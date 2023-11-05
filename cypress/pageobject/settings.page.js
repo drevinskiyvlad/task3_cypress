@@ -1,6 +1,4 @@
 class SettingsPage {
-
-
     elements = {
         logoutButton: () => cy.get('.btn-outline-danger'),
     }
@@ -8,14 +6,6 @@ class SettingsPage {
     clickLogoutButton(){
         this.elements.logoutButton().click();
     }
-
-    open(){
-        cy.visit('/#/settings')
-    }
-
-
 }
-
-
 module.exports = new SettingsPage();
 

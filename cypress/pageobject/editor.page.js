@@ -14,6 +14,10 @@ class EditorPage {
         return this.elements.errorMessage();
     }
 
+    getTitle() {
+        return this.elements.title();
+    }
+
     clickDeleteArticleButton() {
         this.elements.deleteArticleButton().click();
     }
@@ -26,10 +30,6 @@ class EditorPage {
         this.elements.editorForm().should('be.visible');
     }
 
-    getTitle() {
-        return this.elements.title();
-    }
-
     writeArticle(title, description, body) {
         this.elements.titleInput().type(title);
         this.elements.descriptionInput().type(description);
@@ -37,5 +37,6 @@ class EditorPage {
         this.clickPublishButton();
     }
 }
+
 module.exports = new EditorPage();
 

@@ -1,5 +1,3 @@
-const {Faker} = require('/cypress/helper/faker.js');
-
 import alerts from '/cypress/fixtures/alerts.json';
 import data from '/cypress/fixtures/data.json';
 import LoginPage from '/cypress/pageobject/login.page.js'
@@ -7,8 +5,10 @@ import SettingsPage from '/cypress/pageobject/settings.page.js'
 import RegistrationPage from '/cypress/pageobject/registration.page.js'
 import MainPage from '/cypress/pageobject/main.page.js'
 
+const {Faker} = require('/cypress/helper/faker.js');
+
 describe('Login', () => {
-    it.skip('Registration with valid credentials', () => {
+    it('Registration with valid credentials', () => {
         MainPage.open();
         MainPage.clickSignUpButton();
         RegistrationPage.validate();
@@ -22,17 +22,17 @@ describe('Login', () => {
         MainPage.getAccountName().should('contain.text', username);
     })
 
-    it.skip('Registration with empty fields', () => {
+    it('Registration with empty fields', () => {
         RegistrationPage.open();
 
         RegistrationPage.clickSubmitButton();
         RegistrationPage.getErrorMessage().should('contain.text', alerts.blank_email);
     })
 
-    it.skip('Registration with invalid credentials', () => {
+    it('Registration with invalid credentials', () => {
         RegistrationPage.open();
 
-        const username = "Test";
+        const username = data.username; //he is already registered
         const email = Faker.generateValidEmail();
         const password = Faker.generateRandomString(8);
 
@@ -40,16 +40,16 @@ describe('Login', () => {
         RegistrationPage.getErrorMessage().should('contain.text', alerts.username_taken);
     })
 
-    it.skip('Login with valid credentials', () => {
+    it('Login with valid credentials', () => {
         MainPage.open();
         MainPage.clickSignInButton();
         LoginPage.validate();
 
 
-        MainPage.getAccountName().should('contain.text', data.username);
+        MainPage.getAccountName().should('contain.text', data.valid_username);
     })
 
-    it.skip('Login with invalid password', () => {
+    it('Login with invalid password', () => {
         LoginPage.open();
 
         const email = data.valid_email;
@@ -59,7 +59,7 @@ describe('Login', () => {
         LoginPage.getErrorMessage().should('contain.text', alerts.invalid_login);
     })
 
-    it.skip('Logout', () => {
+    it('Logout', () => {
         LoginPage.open();
 
         const email = data.valid_email;

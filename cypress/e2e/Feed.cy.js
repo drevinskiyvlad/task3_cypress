@@ -3,8 +3,9 @@ import LoginPage from '/cypress/pageobject/login.page.js'
 import RegistrationPage from '/cypress/pageobject/registration.page.js'
 import MainPage from '/cypress/pageobject/main.page.js'
 import AccountPage from '/cypress/pageobject/account.page.js'
+
 describe('Feed', () => {
-    it.skip('Check like function', () => {
+    it('Check like function', () => {
         LoginPage.open();
 
         const email = data.valid_email;

@@ -25,7 +25,5 @@ class LoginPage {
         cy.visit('/#/login')
     }
 }
-
-
 module.exports = new LoginPage();
 

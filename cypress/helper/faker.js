@@ -1,4 +1,4 @@
-exports.Faker = class Faker{
+exports.Faker = class Faker {
     static generateRandomString(length) {
         const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         let result = '';

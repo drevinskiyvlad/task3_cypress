@@ -6,9 +6,8 @@ import EditorPage from '/cypress/pageobject/editor.page.js'
 
 const {Faker} = require('/cypress/helper/faker.js');
 
-
 describe('Article', () => {
-    it.skip('Write new article', () => {
+    it('Write new article', () => {
         LoginPage.open();
 
         const email = data.valid_email;

@@ -8,30 +8,30 @@ class RegistrationPage {
         errorMessage: () => cy.get('div.ng-scope > .ng-binding'),
     }
 
-    clickSubmitButton(){
-        this.elements.submitButton().click();
-    }
-
-    getErrorMessage(){
+    getErrorMessage() {
         return this.elements.errorMessage();
     }
 
-    getRegistrationForm(){
+    getRegistrationForm() {
         return this.elements.registrationForm();
     }
 
-    validate(){
+    clickSubmitButton() {
+        this.elements.submitButton().click();
+    }
+
+    validate() {
         this.elements.registrationForm().should('be.visible');
     }
 
-    register(username, email, password){
+    register(username, email, password) {
         this.elements.usernameInput().type(username);
         this.elements.emailInput().type(email);
         this.elements.passwordInput().type(password);
         this.elements.submitButton().click();
     }
 
-    open(){
+    open() {
         cy.visit('/#/register')
     }
 }
