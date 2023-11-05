@@ -25,6 +25,7 @@ describe('Article', () => {
         EditorPage.writeArticle(Title, Description, Body);
         EditorPage.getTitle().should('contain.text', Title);
         EditorPage.clickDeleteArticleButton();
+        MainPage.validate();
     })
 
     it('Writing new article with empty fields', () => {

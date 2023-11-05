@@ -45,8 +45,11 @@ describe('Login', () => {
         MainPage.clickSignInButton();
         LoginPage.validate();
 
+        const email = data.valid_email;
+        const password = data.password;
 
-        MainPage.getAccountName().should('contain.text', data.valid_username);
+        LoginPage.login(email, password);
+        MainPage.getAccountName().should('contain.text', data.username);
     })
 
     it('Login with invalid password', () => {

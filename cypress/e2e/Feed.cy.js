@@ -5,6 +5,7 @@ import MainPage from '/cypress/pageobject/main.page.js'
 import AccountPage from '/cypress/pageobject/account.page.js'
 
 describe('Feed', () => {
+
     it('Check like function', () => {
         LoginPage.open();
 
@@ -14,6 +15,7 @@ describe('Feed', () => {
         LoginPage.login(email, password);
         MainPage.validate();
         MainPage.clickGlobalFeedButton();
+        MainPage.getArticles().should('be.visible');
         MainPage.clickLikeButton();
         MainPage.getLikeButton().should('have.css', 'background-color', 'rgb(92, 184, 92)');
         MainPage.clickAccountName();

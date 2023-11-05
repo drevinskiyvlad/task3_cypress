@@ -8,6 +8,7 @@ class MainPage {
         accountName: () => cy.get(':nth-child(4) > .nav-link'),
         globalFeedButton: () => cy.get('.feed-toggle :nth-child(2) > .nav-link'),
         likeButton: () => cy.get(':nth-child(1) > .article-preview :nth-child(3) .btn'),
+        articles: () => cy.get('.article-preview'),
     }
 
     getLikeButton(){
@@ -20,6 +21,10 @@ class MainPage {
 
     getAccountName(){
         return this.elements.accountName();
+    }
+
+    getArticles(){
+        return this.elements.articles();
     }
 
     clickSignUpButton(){
