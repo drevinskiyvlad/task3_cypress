@@ -22,7 +22,7 @@ jobs:
         run: npm run cypress:run
 
       - name: Upload test results to Cypress Dashboard
-        run:  npx cypress run --record --key 902fabac-1b73-4e99-9f3d-64979c30dd70
+        run:  npx cypress run --record --key CYPRESS_RECORD_KEY
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
