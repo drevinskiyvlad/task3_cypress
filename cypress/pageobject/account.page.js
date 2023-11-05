@@ -1,12 +1,25 @@
-class loginPage {
+class AccountPage {
 
 
     elements = {
-        usernameDropDown: () => cy.get('#userSelect'),
-        selectUser: () => cy.get('option[value="1"]')
+        favouriteArticlesButton: () => cy.get('.articles-toggle > .nav > :nth-child(2) > .nav-link'),
+        favouriteArticle: () => cy.get('article-preview.ng-scope > .article-preview'),
+        likeButton: () => cy.get('.pull-xs-right > .btn')
     }
 
-    open(){
+    clickFavouriteArticlesButton() {
+        this.elements.favouriteArticlesButton().click();
+    }
+
+    clickLikeButton() {
+        this.elements.likeButton().click();
+    }
+
+    getFavouriteArticle() {
+        return this.elements.favouriteArticle();
+    }
+
+    open() {
         cy.visit('/#')
     }
 
@@ -14,5 +27,5 @@ class loginPage {
 }
 
 
-module.exports = new loginPage();
+module.exports = new AccountPage();
 
