@@ -1,5 +1,4 @@
 import data from '/cypress/fixtures/data.json';
-import alerts from '/cypress/fixtures/alerts.json';
 import LoginPage from '/cypress/pageobject/login.page.js'
 import MainPage from '/cypress/pageobject/main.page.js'
 import EditorPage from '/cypress/pageobject/editor.page.js'
@@ -10,10 +9,10 @@ describe('Article', () => {
     it('Write new article', () => {
         LoginPage.open();
 
-        const email = data.valid_email;
-        const password = data.password;
+        const validEmail = data.valid_email;
+        const validPassword = data.password;
 
-        LoginPage.login(email, password);
+        LoginPage.login(validEmail, validPassword);
         MainPage.validate();
         MainPage.clickNewArticleButton();
         EditorPage.validate();
@@ -31,15 +30,15 @@ describe('Article', () => {
     it('Writing new article with empty fields', () => {
         LoginPage.open();
 
-        const email = data.valid_email;
-        const password = data.password;
+        const validEmail = data.valid_email;
+        const validPassword = data.password;
 
-        LoginPage.login(email, password);
+        LoginPage.login(validEmail, validPassword);
         MainPage.validate();
         MainPage.clickNewArticleButton();
         EditorPage.validate();
 
         EditorPage.clickPublishButton();
-        EditorPage.getErrorMessage().should('contain.text', alerts.blank_title);
+        EditorPage.getErrorMessage().should('contain.text', EditorPage.getBlancTitleError());
     })
 })

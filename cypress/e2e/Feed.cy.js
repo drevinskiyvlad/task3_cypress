@@ -9,10 +9,10 @@ describe('Feed', () => {
     it('Check like function', () => {
         LoginPage.open();
 
-        const email = data.valid_email;
-        const password = data.password;
+        const validEmail = data.valid_email;
+        const validPassword = data.password;
 
-        LoginPage.login(email, password);
+        LoginPage.login(validEmail, validPassword);
         MainPage.validate();
         MainPage.clickGlobalFeedButton();
         MainPage.getArticles().should('be.visible');

@@ -1,4 +1,9 @@
 class EditorPage {
+
+    errors = {
+        blancTitleError: () => 'title can\'t be blank',
+    }
+
     elements = {
         editorForm: () => cy.get('.editor-page'),
         titleInput: () => cy.get(':nth-child(1) > .form-control'),
@@ -8,6 +13,10 @@ class EditorPage {
         title: () => cy.get('h1.ng-binding'),
         deleteArticleButton: () => cy.get('.article-actions .btn-outline-danger'),
         errorMessage: () => cy.get('div.ng-scope > .ng-binding'),
+    }
+
+    getBlancTitleError() {
+        return this.errors.blancTitleError;
     }
 
     getErrorMessage() {

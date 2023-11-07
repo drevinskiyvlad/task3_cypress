@@ -1,4 +1,9 @@
 class RegistrationPage {
+    errors = {
+        usernameTakenError: () => 'username has already been taken',
+        blancEmailError: () => 'email can\'t be blank',
+    }
+
     elements = {
         registrationForm: () => cy.get('[ng-disabled="$ctrl.isSubmitting"]'),
         usernameInput: () => cy.get('[placeholder="Username"]'),
@@ -6,6 +11,14 @@ class RegistrationPage {
         passwordInput: () => cy.get('[placeholder="Password"]'),
         submitButton: () => cy.get('[type="submit"]'),
         errorMessage: () => cy.get('div.ng-scope > .ng-binding'),
+    }
+
+    getUsernameTakenError() {
+        return this.errors.usernameTakenError;
+    }
+
+    getBlankEmailError() {
+        return this.errors.blancEmailError;
     }
 
     getErrorMessage() {

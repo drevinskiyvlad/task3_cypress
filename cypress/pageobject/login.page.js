@@ -1,4 +1,9 @@
 class LoginPage {
+
+    errors = {
+        invalidLoginError: () => 'email or password is invalid',
+    }
+
     elements = {
         loginForm: () => cy.get('[ng-disabled="$ctrl.isSubmitting"]'),
         emailInput: () => cy.get('[placeholder="Email"]'),
@@ -7,23 +12,28 @@ class LoginPage {
         errorMessage: () => cy.get('div.ng-scope > .ng-binding'),
     }
 
-    getErrorMessage(){
+    getInvalidLoginError() {
+        return this.errors.invalidLoginError;
+    }
+
+    getErrorMessage() {
         return this.elements.errorMessage();
     }
 
-    validate(){
+    validate() {
         this.elements.loginForm().should('be.visible');
     }
 
-    login(email, password){
+    login(email, password) {
         this.elements.emailInput().type(email);
         this.elements.passwordInput().type(password);
         this.elements.submitButton().click();
     }
 
-    open(){
+    open() {
         cy.visit('/#/login')
     }
 }
+
 module.exports = new LoginPage();
 

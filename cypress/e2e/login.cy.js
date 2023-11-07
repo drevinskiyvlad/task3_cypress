@@ -1,4 +1,3 @@
-import alerts from '/cypress/fixtures/alerts.json';
 import data from '/cypress/fixtures/data.json';
 import LoginPage from '/cypress/pageobject/login.page.js'
 import SettingsPage from '/cypress/pageobject/settings.page.js'
@@ -13,31 +12,31 @@ describe('Login', () => {
         MainPage.clickSignUpButton();
         RegistrationPage.validate();
 
-        const username = Faker.generateRandomString(8);
-        const email = Faker.generateValidEmail();
-        const password = Faker.generateRandomString(8);
+        const validUsername = Faker.generateRandomString(8);
+        const validEmail = Faker.generateValidEmail();
+        const validPassword = Faker.generateRandomString(8);
 
-        RegistrationPage.register(username, email, password);
+        RegistrationPage.register(validUsername, validEmail, validPassword);
 
-        MainPage.getAccountName().should('contain.text', username);
+        MainPage.getAccountName().should('contain.text', validUsername);
     })
 
     it('Registration with empty fields', () => {
         RegistrationPage.open();
 
         RegistrationPage.clickSubmitButton();
-        RegistrationPage.getErrorMessage().should('contain.text', alerts.blank_email);
+        RegistrationPage.getErrorMessage().should('contain.text', RegistrationPage.getBlankEmailError());
     })
 
-    it('Registration with invalid credentials', () => {
+    it('Registration with taken login', () => {
         RegistrationPage.open();
 
-        const username = data.username; //he is already registered
-        const email = Faker.generateValidEmail();
-        const password = Faker.generateRandomString(8);
+        const takenUsername = data.username; //he is already registered
+        const validEmail = Faker.generateValidEmail();
+        const validPassword = Faker.generateRandomString(8);
 
-        RegistrationPage.register(username, email, password);
-        RegistrationPage.getErrorMessage().should('contain.text', alerts.username_taken);
+        RegistrationPage.register(takenUsername, validEmail, validPassword);
+        RegistrationPage.getErrorMessage().should('contain.text', RegistrationPage.getUsernameTakenError());
     })
 
     it('Login with valid credentials', () => {
@@ -45,30 +44,30 @@ describe('Login', () => {
         MainPage.clickSignInButton();
         LoginPage.validate();
 
-        const email = data.valid_email;
-        const password = data.password;
+        const validEmail = data.valid_email;
+        const validPassword = data.password;
 
-        LoginPage.login(email, password);
+        LoginPage.login(validEmail, validPassword);
         MainPage.getAccountName().should('contain.text', data.username);
     })
 
     it('Login with invalid password', () => {
         LoginPage.open();
 
-        const email = data.valid_email;
-        const password = Faker.generateRandomString(4);
+        const validEmail = data.valid_email;
+        const invalidPassword = Faker.generateRandomString(4);
 
-        LoginPage.login(email, password);
-        LoginPage.getErrorMessage().should('contain.text', alerts.invalid_login);
+        LoginPage.login(validEmail, invalidPassword);
+        LoginPage.getErrorMessage().should('contain.text', LoginPage.getInvalidLoginError());
     })
 
     it('Logout', () => {
         LoginPage.open();
 
-        const email = data.valid_email;
-        const password = data.password;
+        const validEmail = data.valid_email;
+        const validPassword = data.password;
 
-        LoginPage.login(email, password);
+        LoginPage.login(validEmail, validPassword);
         MainPage.clickSettingsButton();
         SettingsPage.clickLogoutButton();
         MainPage.getSighInButton().should('be.visible');
