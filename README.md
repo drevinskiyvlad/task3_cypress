@@ -10,15 +10,14 @@ This repository contains automated tests for the RealWorld.io site, implemented 
 - [Installation](#installation)
 - [Running Tests](#running-tests)
 - [Reporting](#reporting)
-- [Contributing](#contributing)
 
 ## Prerequisites
 
 Before running the tests, ensure that you have the following prerequisites installed on your system:
 
-- Node.js
-- npm (Node Package Manager)
-- Cypress
+- Node.js v18
+- npm v9
+- Cypress v13
 
 ## Installation
 
@@ -61,13 +60,3 @@ Or: use command to run tests from terminal:
 ## Reporting
 
 Cypress provides detailed test reports and logs in its test runner interface. You can view the results of the test execution there.
-
-## Contributing
-
-If you would like to contribute to this project, please follow these guidelines:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Implement your changes and add relevant tests.
-4. Ensure all tests pass successfully.
-5. Create a pull request with a clear description of your changes.
