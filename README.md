@@ -56,7 +56,3 @@ Or: use command to run tests from terminal:
    ```bash
    npx cypress run --record --key *KEY*
    ```
-
-## Reporting
-
-Cypress provides detailed test reports and logs in its test runner interface. You can view the results of the test execution there.
