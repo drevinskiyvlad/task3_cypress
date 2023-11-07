@@ -39,6 +39,6 @@ describe('Article', () => {
         EditorPage.validate();
 
         EditorPage.clickPublishButton();
-        EditorPage.getErrorMessage().should('contain.text', EditorPage.getBlancTitleError());
+        EditorPage.getErrorMessage().should('contain.text', EditorPage.blancTitleError);
     })
 })

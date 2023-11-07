@@ -25,7 +25,7 @@ describe('Login', () => {
         RegistrationPage.open();
 
         RegistrationPage.clickSubmitButton();
-        RegistrationPage.getErrorMessage().should('contain.text', RegistrationPage.getBlankEmailError());
+        RegistrationPage.getErrorMessage().should('contain.text', RegistrationPage.blancEmailError);
     })
 
     it('Registration with taken login', () => {
@@ -36,7 +36,7 @@ describe('Login', () => {
         const validPassword = Faker.generateRandomString(8);
 
         RegistrationPage.register(takenUsername, validEmail, validPassword);
-        RegistrationPage.getErrorMessage().should('contain.text', RegistrationPage.getUsernameTakenError());
+        RegistrationPage.getErrorMessage().should('contain.text', RegistrationPage.usernameTakenError);
     })
 
     it('Login with valid credentials', () => {
@@ -58,7 +58,7 @@ describe('Login', () => {
         const invalidPassword = Faker.generateRandomString(4);
 
         LoginPage.login(validEmail, invalidPassword);
-        LoginPage.getErrorMessage().should('contain.text', LoginPage.getInvalidLoginError());
+        LoginPage.getErrorMessage().should('contain.text', LoginPage.invalidLoginError);
     })
 
     it('Logout', () => {
