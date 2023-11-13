@@ -44,18 +44,21 @@ To execute the automated tests, follow these steps:
 
 4. Click on the test spec you want to run, and Cypress will open a browser window and execute the tests.
 
-Or: use command to run tests from terminal:
+   Or: use command to run tests from terminal:
+   
+      ```bash
+      npm run cypress:run
+      ```
 
+## Steps to Creating the Report
+1. Run tests from terminal:
    ```bash
    npm run cypress:run
    ```
-
-## Steps to Creating the Report
-1. Get the record key from cypress dashboard
-2. run the command:
+2. After test ended open report:
    ```bash
-   npx cypress run --record --key *KEY*
-   ```
+    npm run report
+    ```
 
 ## Reporting
 
